@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Control from './control'
 import Mapbox from './mapbox';
+
 
 const Wrapper = styled.div`
   width: 100%;
@@ -10,8 +12,6 @@ const Wrapper = styled.div`
   grid-template-columns: 30% 70%;
 `;
 
-const Panel = styled.div``;
-
 const MapWrapper = styled.div`
   display: flex;
 `;
@@ -19,7 +19,7 @@ const MapWrapper = styled.div`
 export function Viewer() {
   return (
     <Wrapper>
-      <Panel>aa</Panel>
+      <Control />
       <MapWrapper>
         <Mapbox />
       </MapWrapper>

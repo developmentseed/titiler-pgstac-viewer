@@ -5,6 +5,7 @@ import { Viewer } from './viewer';
 
 // Root component.
 function Root() {
+
   useEffect(() => {
     // Hide the welcome banner.
     const banner = document.querySelector('#welcome-banner');
