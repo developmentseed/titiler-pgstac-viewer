@@ -70,3 +70,4 @@ tmp
 .tmp
 dist
 parcel-bundle-reports
+.env.local

@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 
+import { Viewer } from './viewer';
+
 // Root component.
 function Root() {
   useEffect(() => {
@@ -12,7 +14,7 @@ function Root() {
     setTimeout(() => banner.remove(), 500);
   }, []);
 
-  return <p>Hello from Starter</p>;
+  return <Viewer />;
 }
 
 const rootNode = document.querySelector('#app-container');
