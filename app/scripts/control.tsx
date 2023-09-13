@@ -12,16 +12,17 @@ const Panel = styled.div`
 export default function Control() {
 
   const [collectionIdData, setCollectionIdData] = useState([]);
-  const [itemId, setItemId] = useState([]); // do not make item id editable
+  const [itemId, setItemId] = useState(''); // do not make item id editable
 
 
-  const { collectionId, searchID, tileMatrixSetId, format } = useControls(
+  const { collectionId, searchId, tileMatrixSetId, format } = useControls(
     { collectionId: {options: collectionIdData},
-      searchID: 'search-id', 
+      searchId: 'search-id', 
       tileMatrixSetId: {value: 'WebMercatorQuad'}, 
       format: {options: ['png', 'npy', 'tif', 'jpeg', 'jpg', 'jp2', 'webp', 'pngraw']}},
       [collectionIdData]
   );
+
   useEffect(() => {
     async function fetchData() {
       const {data:res}  = await axios.get(`${STAC_ENDPOINT}/collections`);
@@ -29,8 +30,6 @@ export default function Control() {
     }
     fetchData();
   },[]);
-
-
 
   useEffect(() => {
     async function fetchData() {
@@ -40,8 +39,6 @@ export default function Control() {
     }
     fetchData();
   },[collectionId]);
-
-
   
   const theme = {
     colors: {
@@ -62,7 +59,7 @@ export default function Control() {
     <Panel>
       <h1> Titiler previewer</h1>
       <Leva fill flat titleBar={false} theme={theme} />
-
+        {JSON.stringify({collectionId, itemId, searchId, tileMatrixSetId, format })}
     </Panel>);
 
 }
